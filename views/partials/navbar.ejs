@@ -1,0 +1,16 @@
+<!-- navbar.ejs -->
+<nav>
+  <div class="site-title">
+    <a href="/"><h1>Mini Message Board</h1></a>
+    <p>(An Odin DJH project)</p>
+  </div>
+  <ul>
+    <% for (let i = 0; i < links.length; i++) { %>
+    <li>
+      <a href="<%= links[i].href %>">
+        <span> <%= links[i].text %> </span>
+      </a>
+    </li>
+    <% } %>
+  </ul>
+</nav>
