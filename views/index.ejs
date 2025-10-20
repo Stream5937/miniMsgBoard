@@ -6,10 +6,24 @@
 
     <div class="messages content">
       <h2>All Messages</h2>
-
+      <% if(messages.length > 0) { %>
+      <ul>
+        <% for (let i = 0; i < messages.length; i++) { %>
+        <li>
+          <p><%= messages[i].text %></p>
+          <p><%= messages[i].user %></p>
+          <p><%= messages[i].added %></p>
+        </li>
+        <% } %>
+      </ul>
+      <% } else { %>
       <p>There are no messagess to display...</p>
+      <% } %>
     </div>
-
-    <%- include("./partials/footer.ejs") %>
+    <!-- debug: show create value -->
+    <p style="display:none">create: <%= typeof create === 'undefined' ? 'undefined' : create %></p>
+    <% if (typeof create !== 'undefined' && create) { %>
+      <%- include('./partials/form.ejs') %>
+    <% } %>
   </body>
 </html>
