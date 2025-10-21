@@ -35,5 +35,28 @@ indexRouter.get("/", (req, res) => {
   });
 });
 
+indexRouter.post("/new", (req, res) => {
+  console.log("req.body: ", req.body);
+
+  const create =
+    typeof req.query.create !== "undefined" && req.query.create === "false";
+
+  const msg = {};
+
+  msg.title = req.body.title;
+  msg.user = req.body.user;
+  msg.snippet = req.body.snippet;
+  msg.body = req.body.body;
+
+  messages.push({ text: msg.title, user: msg.user, added: new Date() });
+
+  res.render("index", {
+    title: "Home",
+    links: links,
+    messages: messages,
+    create: create,
+  });
+});
+
 // export the router directly so app.use receives the Router instance
 module.exports = indexRouter;
