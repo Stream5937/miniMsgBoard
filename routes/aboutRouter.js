@@ -4,8 +4,9 @@ const aboutRouter = Router();
 
 //data
 const links = [
-  { href: "/", text: "Home" },
-  { href: "/about", text: "About" },
+  { href: "/", text: "&Home" },
+  { href: "about", text: "About" },
+  { href: "new", text: "Create new message" },
 ];
 
 // When this router is mounted at '/about' in app.js, use the root path here

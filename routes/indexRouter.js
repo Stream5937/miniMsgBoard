@@ -1,6 +1,7 @@
 const { Router } = require("express");
-
 const indexRouter = Router();
+//for redirect with variables
+const url = require("url");
 
 //data
 const links = [
@@ -22,6 +23,22 @@ const messages = [
   },
 ];
 
+function sendPostRequest() {
+  console.log("at sendPostRequest");
+  fetch("/details", {
+    method: "POST",
+    headers: {
+      "Content-Type": "aplication/json",
+    },
+    body: JSON.stringify({ id: "id" }),
+  })
+    .then((response) => response.json())
+    .then((data) => console.log("data: ", data))
+    .catch((error) => {
+      console.error("Error: ", error);
+    });
+}
+
 indexRouter.get("/", (req, res) => {
   // read ?create=true from query string and convert to boolean
   const create =
@@ -33,6 +50,17 @@ indexRouter.get("/", (req, res) => {
     messages: messages,
     create: create,
   });
+});
+
+//add create new message functionality
+//app.get("/new", (req, res) => {
+indexRouter.get("/new", (req, res) => {
+  res.redirect(
+    url.format({
+      pathname: "/",
+      query: { title: "Home-new", create: true },
+    })
+  );
 });
 
 indexRouter.post("/new", (req, res) => {
@@ -49,13 +77,16 @@ indexRouter.post("/new", (req, res) => {
   msg.body = req.body.body;
 
   messages.push({ text: msg.title, user: msg.user, added: new Date() });
-
+  /*
   res.render("index", {
     title: "Home",
     links: links,
     messages: messages,
     create: create,
   });
+  */
+  //res.redirect("/", { messages: messages, create: create });
+  res.redirect("/");
 });
 
 // export the router directly so app.use receives the Router instance

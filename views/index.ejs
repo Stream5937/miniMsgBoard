@@ -13,6 +13,7 @@
           <p><%= messages[i].text %></p>
           <p><%= messages[i].user %></p>
           <p><%= messages[i].added %></p>
+          <button id="<%= i %>onclick=" sendPostRequest()>Details</button>
         </li>
         <% } %>
       </ul>
@@ -21,9 +22,10 @@
       <% } %>
     </div>
     <!-- debug: show create value -->
-    <p style="display:none">create: <%= typeof create === 'undefined' ? 'undefined' : create %></p>
-    <% if (typeof create !== 'undefined' && create) { %>
-      <%- include('./partials/form.ejs') %>
-    <% } %>
+    <p style="display: none">
+      create: <%= typeof create === 'undefined' ? 'undefined' : create %>
+    </p>
+    <% if (typeof create !== 'undefined' && create) { %> <%-
+    include('./partials/form.ejs') %> <% } %>
   </body>
 </html>
