@@ -4,7 +4,7 @@ const aboutRouter = Router();
 
 //data
 const links = [
-  { href: "/", text: "&Home" },
+  { href: "/", text: "Home" },
   { href: "about", text: "About" },
   { href: "new", text: "Create new message" },
 ];

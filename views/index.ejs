@@ -13,7 +13,28 @@
           <p><%= messages[i].text %></p>
           <p><%= messages[i].user %></p>
           <p><%= messages[i].added %></p>
-          <button id="<%= i %>onclick=" sendPostRequest()>Details</button>
+          <p><%= messages[i].snippet %></p>
+          <p><%= messages[i].message %></p>
+          <form method="POST" action="/details">
+            <input type="hidden" name="text" value="<%= messages[i].text %>" />
+            <input type="hidden" name="user" value="<%= messages[i].user %>" />
+            <input
+              type="hidden"
+              name="added"
+              value="<%= messages[i].added %>"
+            />
+            <input
+              type="hidden"
+              name="snippet"
+              value="<%= messages[i].snippet %>"
+            />
+            <input
+              type="hidden"
+              name="message"
+              value="<%= messages[i].message %>"
+            />
+            <button type="submit">Details</button>
+          </form>
         </li>
         <% } %>
       </ul>
@@ -21,11 +42,9 @@
       <p>There are no messagess to display...</p>
       <% } %>
     </div>
-    <!-- debug: show create value -->
-    <p style="display: none">
-      create: <%= typeof create === 'undefined' ? 'undefined' : create %>
-    </p>
-    <% if (typeof create !== 'undefined' && create) { %> <%-
+
+    <p style="display: none"></p>
+    <% if (typeof create === 'undefined' ? 'undefined' : create) { %> <%-
     include('./partials/form.ejs') %> <% } %>
   </body>
 </html>

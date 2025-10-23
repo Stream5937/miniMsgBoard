@@ -4,10 +4,29 @@
   <body>
     <%- include("./partials/navbar.ejs") %>
     <br />
-    <div class="message body">
-      <h2>Body</h2>
-    </div>
+    <div class="message-details content">
+      <h2><%= title %></h2>
 
+      <div class="message-content">
+        <% if (text) { %>
+        <p class="message-text"><strong>Text:</strong> <%= text %></p>
+        <% } %> <% if (message) { %>
+        <p class="message-body">
+          <strong>Full Message:</strong> <%= message %>
+        </p>
+        <% } %> <% if (snippet) { %>
+        <p class="message-snippet"><strong>Snippet:</strong> <%= snippet %></p>
+        <% } %>
+
+        <div class="message-meta">
+          <% if (user) { %>
+          <p class="message-author"><strong>Author:</strong> <%= user %></p>
+          <% } %> <% if (added) { %>
+          <p class="message-date"><strong>Date:</strong> <%= added %></p>
+          <% } %>
+        </div>
+      </div>
+    </div>
     <%-include('./partials/footer.ejs') %>
   </body>
 </html>

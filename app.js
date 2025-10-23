@@ -11,24 +11,19 @@ const assetsPath = path.join(__dirname, "public");
 //import routes
 const indexRouter = require("./routes/indexRouter.js");
 const aboutRouter = require("./routes/aboutRouter.js");
-//const newMsgRouter = require("./routes/newMsgRouter.js");
-//for redirect with variables
-//moved to index router
-//const url = require("url");
+const detailsRouter = require("./routes/detailsRouter.js");
 
 //set app properties & register view engine
 app.set("views", path.join(__dirname, "views"));
 // register view engine
 app.set("view engine", "ejs");
 
-//routes
-
 //middleware
 app.use(express.static(assetsPath));
 app.use(express.urlencoded({ extended: true }));
 app.use("/", indexRouter);
 app.use("/about", aboutRouter);
-//app.use("/new", newMsgRouter);
+app.use("/details", detailsRouter);
 
 //data
 const links = [
@@ -36,68 +31,13 @@ const links = [
   { href: "about", text: "About" },
   { href: "new", text: "Create new message" },
 ];
+
 /*
-const messages = [
-  {
-    text: "Hi there!",
-    user: "Amando",
-    added: new Date(),
-  },
-  {
-    text: "Hello World!",
-    user: "Charles",
-    added: new Date(),
-  },
-];
-*/
-// index route is handled by routes/indexRouter.js
-// about route is handled by routes/aboutRouter.js
-/* moved to ./routes/aboutRouter.js
-app.get("/about", (req, res) => {
-  // render the 'about' view (no leading slash)
-  res.render("about", { title: "About", links: links });
-});
-*/
-/*
-const url = require('url');    
-app.get('/category', function(req, res) {
-    res.redirect(url.format({
-       pathname:"/",
-       query: {
-          "a": 1,
-          "b": 2,
-          "valid":"your string here"
-        }
-     }));
- });
-*/
-//redirect with variable
-/* moved to ./routes/indexRouter.js
-app.get("/new", (req, res) => {
-  res.redirect(
-    url.format({
-      pathname: "/",
-      query: { create: true },
-    })
-  );
-});
-*/
-//expand message details to new page
-/*
-app.get("/details", (req, res) => {
-  //console.log("req.body: ", req.body);
-  res.render(
-    url.format({
-      pathname: "/details",
-      query: { title: "Message Body", id: 0 }, //temp index
-    })
-  );
-});
-*/
 app.get("/details", (req, res) => {
   // render the 'about' view (no leading slash)
   res.render("details", { title: "Details", links: links, id: 0 });
 });
+*/
 
 // 404 page
 app.use((req, res) => {

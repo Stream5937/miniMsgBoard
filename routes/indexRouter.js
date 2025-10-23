@@ -15,14 +15,18 @@ const messages = [
     text: "Hi there!",
     user: "Amando",
     added: new Date(),
+    snippet: "Lorem ipsum 1...",
+    message: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
   },
   {
     text: "Hello World!",
     user: "Charles",
     added: new Date(),
+    snippet: "Lorem ipsum 2..",
+    message: "Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
   },
 ];
-
+/*
 function sendPostRequest() {
   console.log("at sendPostRequest");
   fetch("/details", {
@@ -38,7 +42,9 @@ function sendPostRequest() {
       console.error("Error: ", error);
     });
 }
+    */
 
+//display messages
 indexRouter.get("/", (req, res) => {
   // read ?create=true from query string and convert to boolean
   const create =
@@ -53,7 +59,6 @@ indexRouter.get("/", (req, res) => {
 });
 
 //add create new message functionality
-//app.get("/new", (req, res) => {
 indexRouter.get("/new", (req, res) => {
   res.redirect(
     url.format({
@@ -63,6 +68,7 @@ indexRouter.get("/new", (req, res) => {
   );
 });
 
+//POST the new message
 indexRouter.post("/new", (req, res) => {
   console.log("req.body: ", req.body);
 
@@ -76,7 +82,13 @@ indexRouter.post("/new", (req, res) => {
   msg.snippet = req.body.snippet;
   msg.body = req.body.body;
 
-  messages.push({ text: msg.title, user: msg.user, added: new Date() });
+  messages.push({
+    text: msg.title,
+    user: msg.user,
+    added: new Date(),
+    snippet: msg.snippet,
+    message: msg.body,
+  });
   /*
   res.render("index", {
     title: "Home",
