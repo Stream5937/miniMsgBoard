@@ -148,3 +148,10 @@ a {
   width: 90%;
   height: 90%;
 }
+
+form#createMsg {
+  width: 250px;
+  height: auto;
+  border: 2px solid blue;
+  padding: 20px;
+}
