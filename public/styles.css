@@ -1,3 +1,145 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 1em;
+}
+
+title {
+  display: none;
+}
+
 body {
-  color: blue;
+  display: flex;
+  flex-direction: column;
+  /*  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr 6fr; */
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+  background-color: lightcyan;
+  color: darkslateblue;
+}
+
+div {
+  margin: 0px;
+  padding: 0px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  height: 150px;
+  margin: 0;
+  background-color: skyblue;
+  color: darkslateblue;
+  font-size: 32px;
+  font-weight: 900;
+  margin: 0px;
+  padding: 0px 0px 0px 16px;
+  border-bottom: 2px solid darkslateblue;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  min-height: calc(100vh - (155px + 75px));
+  /* border: 2px solid yellow; */
+}
+
+.sidebar {
+  width: 250px;
+  min-width: 250px;
+  min-height: auto;
+  max-height: calc(100vh - (155px + 75px));
+  box-sizing: border-box;
+  padding: 16px;
+  background-color: skyblue;
+  color: darkslateblue;
+  border-right: 2px solid darkslateblue;
+}
+
+.messages {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  /*align-content: center; */
+  padding: 20px;
+  margin: 10px;
+  min-width: calc(100vw - 260px);
+  max-height: calc(100vh - (155px + 75px));
+  border: 2px solid skyblue; /*#eee; */
+}
+
+.about {
+  flex-direction: col;
+}
+
+.card {
+  max-width: 500px;
+  min-width: 350px;
+  height: 200px;
+  border: 1px solid #eee;
+  box-shadow: 2px 4px 16px rgba(0, 0, 0, 0.06);
+  border-radius: 4px;
+  padding: 20px;
+  margin: 10px;
+  background-color: aliceblue;
+}
+
+ul#sidebar {
+  /* remove bullet points */
+  list-style: none;
+  flex-wrap: wrap;
+  margin: 0px;
+}
+
+ul#cards {
+  /* remove bullet points */
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0px;
+}
+
+li {
+  padding: 10px 0px;
+  color: darkslateblue;
+}
+
+a {
+  /* remove link underlining */
+  text-decoration: none;
+  color: darkslateblue;
+  font-size: 24px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75px;
+  background-color: skyblue;
+  color: darkslateblue;
+  border-top: 2px solid darkslateblue;
+}
+
+.not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  background-color: dodgerblue;
+  color: darkslateblue;
+  width: 90%;
+  height: 90%;
 }

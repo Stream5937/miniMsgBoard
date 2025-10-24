@@ -1,11 +1,13 @@
 <html lang="en">
   <%- include("./partials/head.ejs") %>
-
   <body>
     <%- include("./partials/navbar.ejs") %>
-
-    <div class="not-found content">404 - OOPS, page not found :)</div>
-
+    <div class="container">
+      <%- include("./partials/sidebar.ejs") %>
+      <div class="messages">
+        <div class="not-found content">404 - OOPS, page not found :)</div>
+      </div>
+    </div>
     <%- include("./partials/footer.ejs") %>
   </body>
 </html>

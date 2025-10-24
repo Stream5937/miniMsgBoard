@@ -1,26 +1,36 @@
 <html lang="en">
   <%- include("./partials/head.ejs") %>
-
   <body>
     <%- include("./partials/navbar.ejs") %>
-
-    <div class="about content">
-      <h2>About Message Board</h2>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia quibusdam
-        quaerat illo a modi tenetur ut blanditiis, illum quo consectetur
-        recusandae excepturi natus impedit rem, tempora cum fuga quae in.
-      </p>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia quibusdam
-        quaerat illo a modi tenetur ut blanditiis, illum quo consectetur
-        recusandae excepturi natus impedit rem, tempora cum fuga quae in.
-      </p>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia quibusdam
-        quaerat illo a modi tenetur ut blanditiis, illum quo consectetur
-        recusandae excepturi natus impedit rem, tempora cum fuga quae in.
-      </p>
+    <div class="container">
+        <%- include("./partials/sidebar.ejs") %>
+        <div class="messages">
+          <div class="about">
+            <h2>About Message Board</h2>
+            <p>(An Odin DJH project)</p>
+            <br>
+            <hr>
+            <br>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia quibusdam
+              quaerat illo a modi tenetur ut blanditiis, illum quo consectetur
+              recusandae excepturi natus impedit rem, tempora cum fuga quae in.
+            </p>
+            <br>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia quibusdam
+              quaerat illo a modi tenetur ut blanditiis, illum quo consectetur
+              recusandae excepturi natus impedit rem, tempora cum fuga quae in.
+            </p>
+            <br>
+            <p>
+              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia quibusdam
+              quaerat illo a modi tenetur ut blanditiis, illum quo consectetur
+              recusandae excepturi natus impedit rem, tempora cum fuga quae in.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
 
     <%- include("./partials/footer.ejs") %>

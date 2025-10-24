@@ -1,50 +1,58 @@
 <html lang="en">
   <%- include("./partials/head.ejs") %>
-
   <body>
     <%- include("./partials/navbar.ejs") %>
-
-    <div class="messages content">
-      <h2>All Messages</h2>
-      <% if(messages.length > 0) { %>
-      <ul>
-        <% for (let i = 0; i < messages.length; i++) { %>
-        <li>
-          <p><%= messages[i].text %></p>
-          <p><%= messages[i].user %></p>
-          <p><%= messages[i].added %></p>
-          <p><%= messages[i].snippet %></p>
-          <p><%= messages[i].message %></p>
-          <form method="POST" action="/details">
-            <input type="hidden" name="text" value="<%= messages[i].text %>" />
-            <input type="hidden" name="user" value="<%= messages[i].user %>" />
-            <input
-              type="hidden"
-              name="added"
-              value="<%= messages[i].added %>"
-            />
-            <input
-              type="hidden"
-              name="snippet"
-              value="<%= messages[i].snippet %>"
-            />
-            <input
-              type="hidden"
-              name="message"
-              value="<%= messages[i].message %>"
-            />
-            <button type="submit">Details</button>
-          </form>
-        </li>
-        <% } %>
-      </ul>
-      <% } else { %>
-      <p>There are no messagess to display...</p>
-      <% } %>
+    <div class="container">
+      <%- include("./partials/sidebar.ejs") %>
+      <div class="messages">
+        <% if(messages.length > 0) { %>
+        <ul id="cards">
+          <% for (let i = 0; i < messages.length; i++) { %>
+          <div class="card">
+            <li>
+              <p><%= messages[i].text %></p>
+              <p><%= messages[i].user %></p>
+              <p><%= messages[i].added %></p>
+              <p><%= messages[i].snippet %></p>
+              <p><%= messages[i].message %></p>
+              <form method="POST" action="/details">
+                <input
+                  type="hidden"
+                  name="text"
+                  value="<%= messages[i].text %>"
+                />
+                <input
+                  type="hidden"
+                  name="user"
+                  value="<%= messages[i].user %>"
+                />
+                <input
+                  type="hidden"
+                  name="added"
+                  value="<%= messages[i].added %>"
+                />
+                <input
+                  type="hidden"
+                  name="snippet"
+                  value="<%= messages[i].snippet %>"
+                />
+                <input
+                  type="hidden"
+                  name="message"
+                  value="<%= messages[i].message %>"
+                />
+                <button type="submit">Details</button>
+              </form>
+            </li>
+          </div>
+          <% } %>
+        </ul>
+        <% } else { %>
+        <p>There are no messagess to display...</p>
+        <% } %> <% if (typeof create === 'undefined' ? 'undefined' : create) {
+        %> <%- include('./partials/form.ejs') %> <% } %>
+      </div>
     </div>
-
-    <p style="display: none"></p>
-    <% if (typeof create === 'undefined' ? 'undefined' : create) { %> <%-
-    include('./partials/form.ejs') %> <% } %>
+    <%- include('./partials/footer.ejs') %>
   </body>
 </html>
