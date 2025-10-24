@@ -80,7 +80,12 @@ div {
 }
 
 .about {
-  flex-direction: col;
+  display: block;
+}
+
+.messages-detail {
+  display: block;
+  padding: 30px;
 }
 
 .card {
