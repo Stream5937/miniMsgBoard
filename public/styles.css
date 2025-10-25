@@ -98,6 +98,14 @@ div {
   padding: 20px;
   margin: 10px;
   background-color: aliceblue;
+  display: flex;
+  flex-direction: column; /* stack paragraphs */
+  gap: 8px;
+}
+
+.card p {
+  white-space: normal;
+  overflow-wrap: break-word;
 }
 
 ul#sidebar {
@@ -150,8 +158,22 @@ a {
 }
 
 form#createMsg {
-  width: 250px;
+  width: 230px;
   height: auto;
   border: 2px solid blue;
   padding: 20px;
+  margin-left: -10px;
+  margin-top: 20px;
+  /* display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  color: red;
+  background-color: blanchedalmond; */
+}
+
+.card > li > p {
+  max-width: 450px;
+  display: block; /* to allow text to wrap!*/
+  /* flex-direction: row;
+  flex-wrap: wrap; */
 }

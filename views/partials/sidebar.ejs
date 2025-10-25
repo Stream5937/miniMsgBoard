@@ -10,4 +10,9 @@
       <% } %>
     </ul>
   </nav>
+  <br />
+  <hr />
+  <br />
+  <% if (typeof create === 'undefined' ? 'undefined' : create) { %> <%-
+  include('./form.ejs') %> <% } %>
 </div>
