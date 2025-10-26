@@ -44,7 +44,8 @@ app.use((req, res) => {
   res.status(404).render("404", { title: "404", links: links });
 });
 
-const PORT = 3000;
+//const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, (error) => {
   //error
   if (error) {
